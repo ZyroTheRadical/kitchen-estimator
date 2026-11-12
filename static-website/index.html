@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kitchen Project Estimator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="container estimator-shell">
+        <header class="site-header">
+            <div class="brand" aria-label="Saskatchewan Kitchen Solutions">
+                <span class="brand-mark" aria-hidden="true">SK</span>
+                <span class="brand-name">Saskatchewan <strong>Kitchen Solutions</strong></span>
+            </div>
+            <span class="header-note"><span class="header-note-dot" aria-hidden="true"></span>Free estimate · CAD</span>
+        </header>
+        <section class="intro" aria-labelledby="page-title">
+            <p class="eyebrow">PLAN YOUR SPACE WITH CONFIDENCE</p>
+            <h1 id="page-title">Kitchen project<br><em>estimate.</em></h1>
+            <p class="intro-copy">Build a clear, no-obligation estimate in a few simple steps. Choose your finishes, add measurements, and see your savings as you go.</p>
+        </section>
+
+        <div id="calculator" class="card estimator-card">
+            <div class="estimator-heading">
+                <div>
+                    <p class="step-label">PROJECT DETAILS <span data-step-count>01 — 06</span></p>
+                    <h2 data-step-title>Choose your products</h2>
+                </div>
+                <span class="heading-spark" aria-hidden="true">✳</span>
+            </div>
+            <div class="card-body">
+                <form id="productForm">
+                    <nav class="wizard-progress" aria-label="Estimate steps">
+                        <ol>
+                            <li class="is-current" data-progress-step="1" aria-current="step">
+                                <span class="progress-number">01</span><span>Products</span>
+                            </li>
+                            <li data-progress-step="2">
+                                <span class="progress-number">02</span><span>Customization</span>
+                            </li>
+                            <li data-progress-step="3">
+                                <span class="progress-number">03</span><span>Measurements</span>
+                            </li>
+                            <li data-progress-step="4">
+                                <span class="progress-number">04</span><span>Membership</span>
+                            </li>
+                            <li data-progress-step="5">
+                                <span class="progress-number">05</span><span>Review</span>
+                            </li>
+                            <li data-progress-step="6">
+                                <span class="progress-number">06</span><span>Estimate</span>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div class="form-layout">
+                        <div class="form-fields">
+                            <section class="form-section wizard-step" data-wizard-step="1" aria-labelledby="materials-title">
+                                <div class="section-heading">
+                                    <span class="section-number">01</span>
+                                    <div>
+                                        <h3 id="materials-title" tabindex="-1">Choose your products</h3>
+                                        <p>Select the parts of your kitchen you want to include.</p>
+                                    </div>
+                                </div>
+                                <div class="product-types">
+                                    <p class="form-label" id="productTypeLabel">Choose one or more products</p>
+                                    <div class="product-dropdown" id="productDropdown" role="group" aria-labelledby="productTypeLabel">
+                                        <p class="product-selection-summary" data-product-summary aria-live="polite">No products selected</p>
+                                        <div class="product-type-options">
+                                            <button type="button" class="product-type-option" data-product-value="Base Cabinets" aria-pressed="false">
+                                                <span class="product-option-icon" aria-hidden="true">01</span>
+                                                <span class="product-option-copy"><strong>Base cabinets</strong><small>Storage below the counter</small></span>
+                                                <span class="product-option-check" aria-hidden="true"></span>
+                                            </button>
+                                            <button type="button" class="product-type-option" data-product-value="Wall Cabinets" aria-pressed="false">
+                                                <span class="product-option-icon" aria-hidden="true">02</span>
+                                                <span class="product-option-copy"><strong>Wall cabinets</strong><small>Storage above the counter</small></span>
+                                                <span class="product-option-check" aria-hidden="true"></span>
+                                            </button>
+                                            <button type="button" class="product-type-option" data-product-value="Counter Tops" aria-pressed="false">
+                                                <span class="product-option-icon" aria-hidden="true">03</span>
+                                                <span class="product-option-copy"><strong>Countertops</strong><small>Worktop surfaces</small></span>
+                                                <span class="product-option-check" aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="field-hint" id="productSelectionNote">Select all the items you want included.</p>
+                                    <p class="field-error" data-product-error role="alert" hidden>Please choose at least one product.</p>
+                                    <p class="field-error" data-color-error role="alert" hidden>Please choose a color for each selected product.</p>
+                                    </div>
+                            </section>
+
+                            <section class="form-section finish-section wizard-step" data-wizard-step="2" aria-labelledby="finish-title" hidden>
+                                <div class="section-heading">
+                                    <span class="section-number">02</span>
+                                    <div>
+                                        <h3 id="finish-title" tabindex="-1">Customize your kitchen</h3>
+                                        <p>Pick your cabinet look, hardware, collection, and installation preference.</p>
+                                    </div>
+                                </div>
+                                <div class="row g-3 cabinet-colors">
+                                    <div class="col-sm-6" data-color-field="Base Cabinets" hidden>
+                                        <label for="baseCabinetColor" class="form-label">Base cabinet color</label>
+                                        <select id="baseCabinetColor" name="baseCabinetColor" class="form-select" disabled>
+                                            <option value="" selected disabled>Choose a color</option>
+                                            <option>White</option>
+                                            <option>Warm oak</option>
+                                            <option>Sage green</option>
+                                            <option>Charcoal</option>
+                                        </select>
+                                        <p class="field-error" data-color-error role="alert" hidden>Please choose a color for each selected product.</p>
+                                    </div>
+                                    <div class="col-sm-6" data-color-field="Wall Cabinets" hidden>
+                                        <label for="wallCabinetColor" class="form-label">Wall cabinet color</label>
+                                        <select id="wallCabinetColor" name="wallCabinetColor" class="form-select" disabled>
+                                            <option value="" selected disabled>Choose a color</option>
+                                            <option>White</option>
+                                            <option>Warm oak</option>
+                                            <option>Sage green</option>
+                                            <option>Charcoal</option>
+                                        </select>
+                                        <p class="field-error" data-color-error role="alert" hidden>Please choose a color for each selected product.</p>
+                                    </div>
+                                </div>
+                                <fieldset class="cabinet-customization" id="cabinetCustomization" hidden>
+                                    <legend class="form-label">Cabinet door style</legend>
+                                    <div class="choice-grid door-style-options">
+                                        <label class="choice-card" for="styleShaker">
+                                            <input type="radio" id="styleShaker" name="doorStyle" value="Shaker" disabled>
+                                            <span>Shaker</span>
+                                        </label>
+                                        <label class="choice-card" for="styleFlat">
+                                            <input type="radio" id="styleFlat" name="doorStyle" value="Flat-panel" disabled>
+                                            <span>Flat-panel</span>
+                                        </label>
+                                        <label class="choice-card" for="styleRaised">
+                                            <input type="radio" id="styleRaised" name="doorStyle" value="Raised-panel" disabled>
+                                            <span>Raised-panel</span>
+                                        </label>
+                                        <label class="choice-card" for="styleTraditional">
+                                            <input type="radio" id="styleTraditional" name="doorStyle" value="Traditional" disabled>
+                                            <span>Traditional</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="hardware-controls">
+                                        <div>
+                                            <label for="hardwareType" class="form-label">Hardware type</label>
+                                            <select id="hardwareType" name="hardwareType" class="form-select" disabled>
+                                                <option value="" selected>Choose handles or knobs</option>
+                                                <option value="Handles">Handles</option>
+                                                <option value="Knobs">Knobs</option>
+                                            </select>
+                                            <p class="field-hint">Sample hardware pricing is calculated per linear foot.</p>
+                                        </div>
+                                        <div>
+                                            <label for="hardwareFinish" class="form-label">Hardware finish</label>
+                                            <select id="hardwareFinish" name="hardwareFinish" class="form-select" disabled>
+                                                <option value="" selected>Choose a finish</option>
+                                                <option>Black</option>
+                                                <option>Chrome</option>
+                                                <option>Brass</option>
+                                                <option>Brushed nickel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <p class="customization-note">Door style and finish are design preferences. Hardware type adds a sample per-foot charge.</p>
+                                </fieldset>
+
+                                <fieldset class="product-lines">
+                                    <legend class="form-label">Product collection</legend>
+                                    <div class="line-options">
+                                        <label class="line-option" for="empireStandard">
+                                            <input type="radio" id="empireStandard" name="productLine"
+                                                value="Empire Standard" required>
+                                            <span class="line-name">Empire Standard</span>
+                                            <span class="line-detail">Standard range</span>
+                                        </label>
+                                        <label class="line-option" for="kitchenElite">
+                                            <input type="radio" id="kitchenElite" name="productLine"
+                                                value="Kitchen Elite">
+                                            <span class="line-name">Kitchen Elite</span>
+                                            <span class="line-detail">Mid-range collection</span>
+                                        </label>
+                                        <label class="line-option" for="goldStarPlus">
+                                            <input type="radio" id="goldStarPlus" name="productLine"
+                                                value="Gold Star Plus">
+                                            <span class="line-name">Gold Star Plus</span>
+                                            <span class="line-detail">Premium collection</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="installation-options installation-preferences">
+                                    <legend class="form-label">Installation preference</legend>
+                                    <div class="line-options">
+                                        <label class="line-option" for="supplyOnly">
+                                            <input type="radio" id="supplyOnly" name="installationPreference"
+                                                value="Supply only" required>
+                                            <span class="line-name">Supply only</span>
+                                            <span class="line-detail">No installation included</span>
+                                        </label>
+                                        <label class="line-option" for="supplyAndInstall">
+                                            <input type="radio" id="supplyAndInstall" name="installationPreference"
+                                                value="Supply and installation">
+                                            <span class="line-name">Supply and installation</span>
+                                            <span class="line-detail">Adds the $899 sample installation fee</span>
+                                        </label>
+                                        <label class="line-option" for="consultationFirst">
+                                            <input type="radio" id="consultationFirst" name="installationPreference"
+                                                value="Consultation first">
+                                            <span class="line-name">Consultation first</span>
+                                            <span class="line-detail">Installation is not included yet</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <p class="field-hint installation-note">Installation is only priced when supply and installation is selected. Sample fee: $899 CAD.</p>
+                            </section>
+
+                            <section class="form-section details-section wizard-step" data-wizard-step="3" aria-labelledby="details-title" hidden>
+                                <div class="section-heading">
+                                    <span class="section-number">03</span>
+                                    <div>
+                                        <h3 id="details-title" tabindex="-1">A few more details</h3>
+                                        <p>Measurements help us shape your estimate.</p>
+                                    </div>
+                                </div>
+                                <aside class="measurement-guide" aria-labelledby="measurement-guide-title">
+                                    <div class="measurement-guide-heading">
+                                        <span class="measurement-guide-mark" aria-hidden="true">GUIDE</span>
+                                        <div>
+                                            <h4 id="measurement-guide-title">Kitchen measurement guide</h4>
+                                            <p>Use a tape measure and note the lengths where you plan to add cabinets or countertops.</p>
+                                        </div>
+                                    </div>
+                                    <ol class="measurement-guide-steps">
+                                        <li><strong>Measure each wall run.</strong> Measure along the wall from one end of the planned cabinet or counter run to the other. Measure runs separately; don’t use the room perimeter.</li>
+                                        <li><strong>Add the run lengths.</strong> Enter the total in linear feet. Convert inches to feet by dividing by 12.</li>
+                                        <li><strong>Count extras separately.</strong> Count each planned corner cabinet once (3–5 units), and note the number of sinks (1–2 if applicable).</li>
+                                    </ol>
+                                    <p class="measurement-example"><strong>Example:</strong> 10 ft + 8 ft = 18 linear ft. This estimator accepts 3–50 linear feet.</p>
+                                </aside>
+                                <div class="row g-3">
+                                    <div class="col-sm-4">
+                                        <label for="linearFt" class="form-label">Linear footage</label>
+                                        <input type="number" id="linearFt" name="linearFt" class="form-control"
+                                            placeholder="3–50 ft" min="3" max="50" step="any" required
+                                            aria-describedby="linearFtHint linearFtError">
+                                        <p id="linearFtHint" class="field-hint">Add the lengths of all planned runs.</p>
+                                        <p id="linearFtError" class="field-error" role="alert" hidden></p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="cornerUnits" class="form-label">Corner units</label>
+                                        <input type="number" id="cornerUnits" name="cornerUnits" class="form-control"
+                                            placeholder="3–5 units" min="3" max="5" step="1" required
+                                            aria-describedby="cornerUnitsHint cornerUnitsError">
+                                        <p id="cornerUnitsHint" class="field-hint">Count planned corner cabinets once each.</p>
+                                        <p id="cornerUnitsError" class="field-error" role="alert" hidden></p>
+                                    </div>
+                                    <div class="col-sm-4" id="sinkField">
+                                        <label for="sinks" class="form-label">Sinks <span class="optional">(optional)</span></label>
+                                        <input type="number" id="sinks" name="sinks" class="form-control"
+                                            placeholder="1–2 sinks" min="1" max="2" step="1"
+                                            aria-describedby="sinksError">
+                                        <p id="sinksError" class="field-error" role="alert" hidden></p>
+                                    </div>
+                                </div>
+                                <fieldset class="accessories-section">
+                                    <legend class="form-label">Optional accessories</legend>
+                                    <p class="field-hint">Add accessories to include them in your live estimate.</p>
+                                    <div class="accessory-options">
+                                        <label class="accessory-option">
+                                            <input type="checkbox" name="accessories" value="Soft-close hinges" data-accessory-price="180">
+                                            <span>Soft-close hinges</span><strong data-accessory-price-display></strong>
+                                        </label>
+                                        <label class="accessory-option">
+                                            <input type="checkbox" name="accessories" value="Pull-out drawers" data-accessory-price="240">
+                                            <span>Pull-out drawers</span><strong data-accessory-price-display></strong>
+                                        </label>
+                                        <label class="accessory-option">
+                                            <input type="checkbox" name="accessories" value="Lazy Susan" data-accessory-price="325">
+                                            <span>Lazy Susan</span><strong data-accessory-price-display></strong>
+                                        </label>
+                                        <label class="accessory-option">
+                                            <input type="checkbox" name="accessories" value="Drawer organizers" data-accessory-price="95">
+                                            <span>Drawer organizers</span><strong data-accessory-price-display></strong>
+                                        </label>
+                                        <label class="accessory-option">
+                                            <input type="checkbox" name="accessories" value="Under-cabinet lighting" data-accessory-price="180">
+                                            <span>Under-cabinet lighting</span><strong data-accessory-price-display></strong>
+                                        </label>
+                                    </div>
+                                    <p class="field-hint">Sample fixed price per selected accessory; final pricing may vary.</p>
+                                </fieldset>
+                            </section>
+                            <section class="form-section membership-section wizard-step" data-wizard-step="4" aria-labelledby="membership-title" hidden>
+                                <div class="section-heading">
+                                    <span class="section-number">04</span>
+                                    <div>
+                                        <h3 id="membership-title" tabindex="-1">Membership savings</h3>
+                                        <p>Choose a membership for savings on eligible cabinetry and installation.</p>
+                                    </div>
+                                </div>
+                                <div class="membership-tier-cards" aria-label="Membership levels">
+                                    <article class="membership-tier-card" data-membership-card="Bronze">
+                                        <div class="membership-tier-heading">
+                                            <h4>Bronze Membership</h4>
+                                            <strong>3% OFF</strong>
+                                        </div>
+                                        <p class="membership-tier-tagline">Entry level</p>
+                                        <p>For customers starting their kitchen renovation.</p>
+                                        <ul>
+                                            <li>3% discount on eligible cabinetry and installation</li>
+                                            <li>Standard project consultation</li>
+                                            <li>Access to member pricing</li>
+                                        </ul>
+                                    </article>
+                                    <article class="membership-tier-card is-popular" data-membership-card="Silver">
+                                        <div class="membership-tier-heading">
+                                            <h4>Silver Membership</h4>
+                                            <strong>5% OFF</strong>
+                                        </div>
+                                        <p class="membership-tier-tagline">Popular choice</p>
+                                        <p>For customers planning a larger kitchen renovation.</p>
+                                        <ul>
+                                            <li>5% discount on eligible cabinetry and installation</li>
+                                            <li>Priority consultation scheduling</li>
+                                            <li>Additional design revision</li>
+                                        </ul>
+                                    </article>
+                                    <article class="membership-tier-card" data-membership-card="Gold">
+                                        <div class="membership-tier-heading">
+                                            <h4>Gold Membership</h4>
+                                            <strong>7% OFF</strong>
+                                        </div>
+                                        <p class="membership-tier-tagline">Premium</p>
+                                        <p>For customers undertaking premium or larger renovations.</p>
+                                        <ul>
+                                            <li>7% discount on eligible cabinetry and installation</li>
+                                            <li>Priority project scheduling</li>
+                                            <li>Additional design consultations</li>
+                                            <li>Priority customer support</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                                <label for="membershipLevel" class="form-label">Membership tier</label>
+                                <select id="membershipLevel" name="membershipLevel" class="form-select">
+                                    <option value="" selected>No membership</option>
+                                    <option value="Bronze">Bronze Membership — 3% off</option>
+                                    <option value="Silver">Silver Membership — 5% off</option>
+                                    <option value="Gold">Gold Membership — 7% off</option>
+                                </select>
+                                <p class="membership-feedback" id="membershipFeedback" aria-live="polite">Choose a membership to unlock a savings tier.</p>
+                                <div class="discount-breakdown" aria-live="polite">
+                                    <p class="discount-breakdown-title">Membership savings comparison</p>
+                                    <dl class="discount-breakdown-list">
+                                        <div><dt>Original subtotal</dt><dd data-original-subtotal>Complete product and measurement details to see your subtotal.</dd></div>
+                                        <div><dt>Bronze savings on eligible cabinetry and installation (3%)</dt><dd data-tier-discount="Bronze">—</dd></div>
+                                        <div><dt>Silver savings on eligible cabinetry and installation (5%)</dt><dd data-tier-discount="Silver">—</dd></div>
+                                        <div><dt>Gold savings on eligible cabinetry and installation (7%)</dt><dd data-tier-discount="Gold">—</dd></div>
+                                        <div class="discount-total"><dt data-total-savings-label>Total savings</dt><dd data-total-savings>—</dd></div>
+                                    </dl>
+                                </div>
+                                <fieldset class="optional-costs">
+                                    <legend class="form-label">Optional estimate allowances</legend>
+                                    <label class="accessory-option">
+                                        <input type="checkbox" name="includeDelivery" value="yes">
+                                        <span>Include delivery</span><strong>+$149.00 CAD</strong>
+                                    </label>
+                                    <label class="accessory-option">
+                                        <input type="checkbox" name="includeContingency" value="yes">
+                                        <span>Include 10% contingency allowance</span><strong>Optional</strong>
+                                    </label>
+                                    <p class="field-hint">Both are excluded unless selected. The contingency is 10% of the discounted project subtotal plus any selected delivery and installation fees.</p>
+                                </fieldset>
+                            </section>
+                            <section class="form-section review-section wizard-step" data-wizard-step="5" aria-labelledby="review-title" hidden>
+                                <div class="section-heading">
+                                    <span class="section-number">05</span>
+                                    <div>
+                                        <h3 id="review-title" tabindex="-1">Review your project</h3>
+                                        <p>Review your selections or edit any section before creating the estimate.</p>
+                                    </div>
+                                </div>
+                                <dl class="review-list">
+                                    <div><dt>Products <button type="button" class="review-edit" data-edit-step="1">Edit</button></dt><dd data-review-products>Choose products</dd></div>
+                                    <div><dt>Collection <button type="button" class="review-edit" data-edit-step="2">Edit</button></dt><dd data-review-line>Choose a collection</dd></div>
+                                    <div><dt>Cabinet finishes</dt><dd data-review-colors>No cabinet finishes selected</dd></div>
+                                    <div><dt>Door style</dt><dd data-review-style>No cabinet style selected</dd></div>
+                                    <div><dt>Hardware</dt><dd data-review-hardware>No hardware selected</dd></div>
+                                    <div><dt>Installation preference</dt><dd data-review-installation>No installation preference selected</dd></div>
+                                    <div><dt>Measurements & extras <button type="button" class="review-edit" data-edit-step="3">Edit</button></dt><dd data-review-space>Complete your measurements</dd></div>
+                                    <div><dt>Accessories</dt><dd data-review-accessories>None selected</dd></div>
+                                    <div><dt>Membership & allowances <button type="button" class="review-edit" data-edit-step="4">Edit</button></dt><dd data-review-membership>No membership</dd></div>
+                                    <div><dt>Additional costs</dt><dd data-review-cost-options>No optional costs selected</dd></div>
+                                </dl>
+                                <div class="live-price-card" aria-live="polite">
+                                    <span>Current estimated total, including selected allowances and taxes</span>
+                                    <output data-live-total>Complete the required choices to see your estimate.</output>
+                                    <small>Updates as you change products, customization, measurements, membership, or allowances.</small>
+                                </div>
+                                <p class="review-note"><strong>How pricing works:</strong> product and hardware rates use linear footage; accessories use the sample prices shown. Membership savings apply to eligible cabinetry and included installation, but not countertops, hardware, accessories, delivery, or contingency. GST (5%) and Saskatchewan PST (6%) are calculated on the included subtotal. Delivery and contingency are optional; installation is included only with supply and installation. All prices are sample CAD amounts.</p>
+                            </section>
+                            <section class="form-section estimate-section wizard-step" data-wizard-step="6" aria-labelledby="estimate-title" hidden>
+                                <div class="section-heading">
+                                    <span class="section-number">06</span>
+                                    <div>
+                                        <h3 id="estimate-title" tabindex="-1">Your estimate</h3>
+                                        <p>Build an itemized estimate that you can save, copy, or print.</p>
+                                    </div>
+                                </div>
+                                <p class="estimate-explainer">The estimate shows your original subtotal, membership savings on eligible cabinetry and included installation, applicable GST and Saskatchewan PST, and each selected additional cost. Optional delivery and contingency are only included when selected; installation is only included with supply and installation.</p>
+                            </section>
+                        </div>
+                        
+                        <aside class="preview-panel" aria-label="Selected product preview">
+                            <span class="preview-kicker">YOUR PROJECT</span>
+                            <p class="preview-empty-state">Choose a product to start building your kitchen estimate.</p>
+                            <img id="productImage" class="img-fluid" alt="" hidden>
+                            <p class="preview-caption">Sample product image</p>
+                            <div class="preview-estimate-card" aria-live="polite">
+                                <span class="preview-estimate-label">LIVE ESTIMATE</span>
+                                <output class="is-pending" data-preview-total>Complete the required details to see your estimate.</output>
+                                <p data-preview-selection>No products selected</p>
+                            </div>
+                            <p class="preview-disclaimer">Sample pricing only. Your final quote may vary.</p>
+                        </aside>
+                    </div>
+
+                    <div class="form-footer">
+                        <div>
+                            <p>Preliminary estimate based on sample rates.</p>
+                            <p class="live-estimate-note">Sample amounts only. Optional delivery and contingency are excluded unless selected.</p>
+                        </div>
+                        <div class="save-project-actions">
+                            <button type="button" class="btn back-button" data-save-project>Save my estimate</button>
+                            <button type="button" class="btn back-button" data-load-project hidden>Load saved estimate</button>
+                            <p class="save-project-status" data-save-status role="status" aria-live="polite"></p>
+                        </div>
+                        <button type="reset" class="btn reset-button">Start over</button>
+                        <button type="button" class="btn back-button" data-step-back hidden>Back</button>
+                        <button type="button" class="btn estimate-button" data-step-next>
+                            Continue <span aria-hidden="true">→</span>
+                        </button>
+                        <button type="submit" class="btn estimate-button" data-build-estimate hidden>
+                            Build my estimate <span aria-hidden="true">↗</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="order.js" defer></script>
+    <footer class="site-footer">
+        <span>© <time data-current-year></time> Saskatchewan Kitchen Solutions</span>
+        <span>Created by @ZyroTheRadical </span>
+    </footer>
+</body>
+</html>
