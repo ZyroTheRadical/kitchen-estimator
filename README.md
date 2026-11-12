@@ -1,4 +1,7 @@
-# Kitchen Estimator
+# Please note that contributions of AI/LLM technology are not permitted in this repository. Please note that I will not accept AI/LLM-generated or AI/LLM-assisted pull requests. These will be closed without review.
+
+## Kitchen Estimator
+
 A browser-based kitchen project estimator for Saskatchewan Kitchen Solutions. It guides visitors through product selection, kitchen customization, measurements, membership savings, and a final cost estimate.
 
 The project is built with HTML, CSS, and vanilla JavaScript. It uses Bootstrap 5.3.3 for its responsive layout and interface components.
