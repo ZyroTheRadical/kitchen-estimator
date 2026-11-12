@@ -16,9 +16,7 @@ Features
 - Responsive styling for desktop and smaller screens.
 
 ## Preview
-There are no dedicated application screenshots included in the repository yet. Add screenshots here when available:
-![Kitchen estimator start screen](screenshots/estimator-start.png)
-![Kitchen estimate results](screenshots/estimate-results.png)
+There are no dedicated application screenshots included in the repository yet.
 
 ## Getting started
 This is a static website. There is no package installation or build step.
